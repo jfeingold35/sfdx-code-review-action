@@ -111,7 +111,7 @@ runs:
       shell: bash
       env:
           DIFF_LIST: ${{ steps.getdiff.outputs.difflist }}
-      run: sf scanner run --target "$DIFF_LIST" --category "${{ inputs.category }}" --engine "${{ inputs.engine }}" --eslintconfig "${{ inputs.eslintconfig }}" --pmdconfig "${{ inputs.pmdconfig }}" --tsconfig "${{ inputs.tsconfig }}" --format csv --normalize-severity  > report.csv
+      run: sf scanner run --target "$DIFF_LIST" --category "${{ inputs.category }}" --engine "${{ inputs.engine }}" --eslintconfig "${{ inputs.eslintconfig }}" --pmdconfig "${{ inputs.pmdconfig }}" --tsconfig "${{ inputs.tsconfig }}" --format csv --normalize-severity --outfile report.csv
 
     - shell: bash
       run: cat report.csv
