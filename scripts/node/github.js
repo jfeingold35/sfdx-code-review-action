@@ -3,7 +3,7 @@ const { Octokit } = require('@octokit/action');
 module.exports = {
 	createReview: async function (review) {
 		const octokit = new Octokit();
-
+		console.log(`Review is===\n${JSON.stringify(review)}\n===`);
 		const {
 			data: { id }
 		} = await octokit.request('POST /repos/{owner}/{repo}/pulls/{pull_number}/reviews', {
