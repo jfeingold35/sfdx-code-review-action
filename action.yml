@@ -112,6 +112,9 @@ runs:
       env:
           DIFF_LIST: ${{ steps.getdiff.outputs.difflist }}
       run: sf scanner run --target "$DIFF_LIST" --category "${{ inputs.category }}" --engine "${{ inputs.engine }}" --eslintconfig "${{ inputs.eslintconfig }}" --pmdconfig "${{ inputs.pmdconfig }}" --tsconfig "${{ inputs.tsconfig }}" --format csv --normalize-severity  > report.csv
+
+    - shell: bash
+      run: cat report.csv
     
     - name: 'Run Graph Engine'
       if: ${{ inputs.dfa_setting != '' }}
